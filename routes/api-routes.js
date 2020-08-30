@@ -21,6 +21,7 @@ module.exports = function (app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
+      username: req.body.username,
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -45,9 +46,46 @@ module.exports = function (app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        username: req.user.username,
         email: req.user.email,
         id: req.user.id,
       });
     }
+  });
+  // This is where we will start trying to create API routes for our inventory items
+  //
+  //
+  //
+  //
+  app.get("/api/pantry", (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.Inventory.findAll({}).then((dbInventory) => {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbInventory);
+    });
+  });
+  //
+  app.post("/api/pantry", (req, res) => {
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.Inventory.create({
+      text: req.body.text,
+    }).then((dbInventory) => {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbInventory);
+    });
+  });
+  //
+  app.delete("/api/pantry/:id", (req, res) => {
+    // We just have to specify which todo we want to destroy with "where"
+    db.Inventory.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbInventory) => {
+      res.json(dbInventory);
+    });
   });
 };
