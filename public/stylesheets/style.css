@@ -2,3 +2,44 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+#welcomeTag {
+  align-content: center;
+}
+
+.todo-list {
+  margin: 0 auto;
+  margin-top: 75px;
+}
+
+input.new-item:focus {
+  outline: none;
+}
+
+.list-group-item > button.delete,
+.list-group-item > button.complete {
+  float: right;
+  height: 25px;
+  margin-left: 5px;
+}
+
+.edit {
+  width: 100%;
+}
+
+#pantryInventory {
+  border: 5px solid black;
+  width: 600px;
+  height: 600px;
+  float: right;
+  margin-right: 25px;
+}
+
+#pantryItemInput {
+  width: 500px;
+  border: 1px solid black;
+}
+
+.todo-item {
+  border: 1px solid black;
+}
