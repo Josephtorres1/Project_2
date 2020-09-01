@@ -29,17 +29,62 @@ input.new-item:focus {
 
 #pantryInventory {
   border: 5px solid black;
-  width: 600px;
+  width: 700px;
   height: 600px;
   float: right;
   margin-right: 25px;
+  margin-top: 20px;
 }
 
 #pantryItemInput {
-  width: 500px;
+  width: 300px;
   border: 1px solid black;
+  display: inline-block;
+}
+
+#pantryItemInputQuantity {
+  width: 100px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#pantryItemInputExpiration {
+  width: 175px;
+  border: 1px solid black;
+  display: inline-block;
 }
 
 .todo-item {
+  width: 500px;
   border: 1px solid black;
+  margin-left: 17px;
+}
+
+/*  */
+#recipeList {
+  border: solid 3px black;
+  width: 450px;
+  height: 400px;
+  position: relative;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+/* .todo-list {
+  margin: 0 auto;
+  margin-top: 75px;
+} */
+
+/* input.new-item:focus {
+  outline: none;
+} */
+
+.recipeList-group-item > button.delete {
+  float: right;
+  height: 25px;
+  margin-left: 5px;
+}
+
+.edit {
+  width: 100%;
 }

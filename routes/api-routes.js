@@ -3,9 +3,6 @@ const db = require("../models");
 const passport = require("../config/passport");
 
 module.exports = function (app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
@@ -14,9 +11,6 @@ module.exports = function (app) {
     });
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
@@ -43,8 +37,6 @@ module.exports = function (app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         username: req.user.username,
         email: req.user.email,
@@ -58,34 +50,72 @@ module.exports = function (app) {
   //
   //
   app.get("/api/pantry", (req, res) => {
-    // findAll returns all entries for a table when used with no options
-    db.Inventory.findAll({}).then((dbInventory) => {
-      // We have access to the todos as an argument inside of the callback function
+    db.Inventory2.findAll({}).then((dbInventory) => {
       res.json(dbInventory);
     });
   });
-  //
+
   app.post("/api/pantry", (req, res) => {
-    console.log(req.body);
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
-    db.Inventory.create({
+    db.Inventory2.create({
       text: req.body.text,
+      quantity: req.body.quantity,
+      expiration: req.body.expiration,
     }).then((dbInventory) => {
-      // We have access to the new todo as an argument inside of the callback function
       res.json(dbInventory);
     });
   });
-  //
-  app.delete("/api/pantry/:id", (req, res) => {
-    // We just have to specify which todo we want to destroy with "where"
-    db.Inventory.destroy({
+
+  app.get("/api/pantry/:id", (req, res) => {
+    db.Inventory2.findOne({
       where: {
         id: req.params.id,
       },
     }).then((dbInventory) => {
       res.json(dbInventory);
+    });
+  });
+
+  app.delete("/api/pantry/:id", (req, res) => {
+    db.Inventory2.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbInventory) => {
+      res.json(dbInventory);
+    });
+  });
+
+  app.get("/api/recipeIngredients", (req, res) => {
+    db.RecipeIngredients.findAll({}).then((dbIngredients) => {
+      res.json(dbIngredients);
+    });
+  });
+
+  app.post("/api/recipeIngredients", (req, res) => {
+    db.RecipeIngredients.create({
+      text: req.body.text,
+    }).then((dbIngredients) => {
+      res.json(dbIngredients);
+    });
+  });
+
+  app.get("/api/recipeIngredients/:id", (req, res) => {
+    db.RecipeIngredients.findOne({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbIngredients) => {
+      res.json(dbIngredients);
+    });
+  });
+
+  app.delete("/api/recipeIngredients/:id", (req, res) => {
+    db.RecipeIngredients.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbIngredients) => {
+      res.json(dbIngredients);
     });
   });
 };
