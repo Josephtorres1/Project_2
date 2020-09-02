@@ -94,32 +94,6 @@ input.new-item:focus {
   margin: 40px;
 }
 
-/* Open source styling */
-
-@font-face {
-  font-family: "Plain";
-  src: url("../fonts/Plain-Regular.woff2") format("woff2"),
-    url("../fonts/Plain-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Plain";
-  src: url("../fonts/Plain-Light.woff2") format("woff2"),
-    url("../fonts/Plain-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Plain";
-  src: url("../fonts/Plain-Bold.woff2") format("woff2"),
-    url("../fonts/Plain-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-
 :root {
   --primary-color: #f13a11;
   --white-color: #ffffff;
