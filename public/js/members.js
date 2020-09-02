@@ -15,10 +15,11 @@ $(document).ready(() => {
 
   let pantry = [];
   let recipeIngredients = [];
+  let inventoryItem;
 
   function insertItem(event) {
     event.preventDefault();
-    const inventoryItem = {
+    inventoryItem = {
       text: newPantryInput.val().trim(),
       quantity: parseInt(newPantryInputQuantity.val()),
       expiration: newPantryInputExpiration[0].value,
@@ -39,6 +40,7 @@ $(document).ready(() => {
   function initializeRows() {
     pantryContainer.empty();
     const rowsToAdd = [];
+    console.log(pantry);
     for (let i = 0; i < pantry.length; i++) {
       rowsToAdd.push(createNewRow(pantry[i]));
     }
