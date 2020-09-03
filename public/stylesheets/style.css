@@ -1,4 +1,4 @@
-form.signup,
+/* form.signup,
 form.login {
   margin-top: 50px;
 }
@@ -92,8 +92,21 @@ input.new-item:focus {
   position: static;
   width: 80%;
   margin: 40px;
+} */
+
+#pantryInventory {
+  border: 2px solid black;
+  position: relative;
+  margin-top: 100px;
+}
+#targetContainer {
+  margin-top: auto;
+  border: 2px solid black;
 }
 
+/* ----------------------------------------------
+    CSS From Template Starts Here 
+-------------------------------------------------*/
 :root {
   --primary-color: #f13a11;
   --white-color: #ffffff;
@@ -429,6 +442,17 @@ a:focus {
 
 .hero {
   background-image: url(".././images/chef-bg.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  min-height: 100vh;
+  position: relative;
+}
+
+.backdrop {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(".././images/chef-bg.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
