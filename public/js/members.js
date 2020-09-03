@@ -8,7 +8,7 @@ $(document).ready(() => {
   getInventory();
   getRecipeList();
   // On submit we insert list item
-  $(document).on("submit", "#inventory-form", insertItem);
+  $(document).on("submit", "#pantry-form", insertItem);
   $(document).on("click", "#pantryItemDelete", deletePantryItem);
   $(document).on("click", "#recipeItemDelete", deleteRecipeItem);
   $(document).on("click", "button.complete", insertRecipeItem);

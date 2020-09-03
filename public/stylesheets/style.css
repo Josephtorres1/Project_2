@@ -3,96 +3,45 @@ form.login {
   margin-top: 50px;
 }
 
-#welcomeTag {
-  float: right;
-}
-
-.todo-list {
-  margin: 0 auto;
-  margin-top: 75px;
-}
-
-input.new-item:focus {
-  outline: none;
-}
-
-.list-group-item > button.delete,
-.list-group-item > button.complete {
-  float: right;
-  height: 25px;
-  margin-left: 5px;
-}
-
-.edit {
-  width: 100%;
-}
+/* Pantry.html styles */
 
 #pantryInventory {
-  border: 5px solid black;
-  width: 700px;
-  height: 600px;
-  margin-right: 25px;
-  margin-top: 20px;
-  display: inline-block;
-  border-radius: 15px;
+  border: 2px solid black;
+  position: relative;
+  margin-top: 100px;
 }
 
-#pantryItemInput {
-  width: 300px;
-  border: 1px solid black;
-  display: inline-block;
-}
-
-#pantryItemInputQuantity {
-  width: 100px;
-  border: 1px solid black;
-  display: inline-block;
-}
-
-#pantryItemInputExpiration {
-  width: 175px;
-  border: 1px solid black;
-  display: inline-block;
-}
-
-.todo-item {
+.pantry-list {
+  border: 2px solid black;
   width: 500px;
-  border: 1px solid black;
-  margin-left: 17px;
+  margin: 20px;
+}
+
+#targetContainer {
+  border: 2px solid black;
+  width: 80%;
+}
+
+.todo-container {
+  border: 2px solid black;
 }
 
 #recipeList {
-  border: solid 3px black;
-  width: 450px;
-  height: 400px;
-  position: relative;
-  margin-left: 20px;
-  margin-top: 20px;
-  display: inline-block;
-  border-radius: 15px;
-}
-
-.recipeList-group-item > button.delete {
-  float: right;
-  height: 25px;
-  margin-left: 5px;
-}
-
-.edit {
-  width: 100%;
-}
-
-.recipeInventory-container {
-  border: 1px solid black;
-  margin: 40px;
-}
-
-#locateRecipeDiv {
   border: 2px solid black;
-  position: static;
-  width: 80%;
-  margin: 40px;
 }
+
+.recipe-list {
+  border: 2px solid black;
+}
+
+/* Random.html styles */
+.card-deck {
+  border: 2px solid black;
+  position: relative;
+  margin-top: 100px;
+}
+
+/*  */
 
 :root {
   --primary-color: #f13a11;

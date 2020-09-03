@@ -19,10 +19,6 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <!--
-Tooplate 2119 Gymso Fitness
-https://www.tooplate.com/view/2119-gymso-fitness
--->
   </head>
   <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
     <!-- MENU BAR -->
@@ -67,15 +63,16 @@ https://www.tooplate.com/view/2119-gymso-fitness
         </div>
       </div>
     </nav>
-
-    <div id="pantryInventory" class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <ul class="list-group todo-list">
-            <li class="list-group-item new-item">
-              <form id="inventory-form">
-                <div id="targetContainer" class="container">
-                  <div class="row">
+    <section
+      class="hero d-flex flex-column justify-content-center align-items-center"
+    >
+      <div id="pantryInventory" class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <ul class="list-group pantry-list">
+              <li class="list-group-item new-item">
+                <form id="pantry-form">
+                  <div id="targetContainer" class="container">
                     <div class="col-10">
                       <input
                         id="pantryItemInput"
@@ -103,30 +100,29 @@ https://www.tooplate.com/view/2119-gymso-fitness
                       </button>
                     </div>
                   </div>
-                </div>
-              </form>
-            </li>
-            <span class="todo-container"> </span>
-          </ul>
+                </form>
+              </li>
+              <span class="todo-container"> </span>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="recipeList" class="container">
-      <div class="row">
-        <div id="locateRecipeDiv" class="col-md-10 offset-md-2">
-          <ul class="recipeList-group recipe-list">
-            <li class="recipeList-group-item new-item">
-              <form id="recipeInventory-form">Selected Ingredients</form>
-            </li>
-            <span class="recipeInventory-container"> </span>
-          </ul>
-          <button id="exampleSubmit" type="submit" form="form1" value="Submit">
-            Submit
-          </button>
+      <div id="recipeList" class="container">
+        <div class="row">
+          <div id="locateRecipeDiv" class="col-md-10 offset-md-2">
+            <h3>Selected Ingredients</h3>
+            <button
+              id="exampleSubmit"
+              type="submit"
+              form="form1"
+              value="Submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-
+    </section>
     <!-- Jquery link and JS script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
