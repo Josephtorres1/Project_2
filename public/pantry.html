@@ -59,74 +59,81 @@ https://www.tooplate.com/view/2119-gymso-fitness
             <li class="nav-item">
               <a href="/favorites" class="nav-link smoothScroll">Favorites</a>
             </li>
+            <li class="nav-item">
+              <a id="logoutBtn" class="navbar-brand" href="/logout"> Logout </a>
+            </li>
           </ul>
-
-          <div class="navbar-header">
-            <a id="logoutBtn" class="navbar-brand" href="/logout"> Logout </a>
-          </div>
         </div>
       </div>
     </nav>
 
-    <div id="pantryInventory" class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <ul class="list-group todo-list">
-            <li class="list-group-item new-item">
-              <form id="inventory-form">
-                <div id="targetContainer" class="container">
-                  <div class="row">
-                    <div class="col-10">
-                      <input
-                        id="pantryItemInput"
-                        class="new-item form-control"
-                        placeholder="Add Ingredient"
-                        type="text"
-                      />
-                      <input
-                        id="pantryItemInputQuantity"
-                        class="new-item form-control"
-                        placeholder="Quantity"
-                        type="number"
-                      />
-                      <input
-                        id="pantryItemInputExpiration"
-                        class="new-item form-control"
-                        placeholder="Expiration"
-                        type="date"
-                      />
-                    </div>
-                    <br />
-                    <div class="col-2">
-                      <button type="submit" class="btn btn-success">
-                        Add Ingredient
-                      </button>
+    <section
+      class="backdrop d-flex flex-column justify-content-center align-items-center"
+    >
+      <div id="pantryInventory" class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <ul class="list-group todo-list">
+              <li class="list-group-item new-item">
+                <form id="inventory-form">
+                  <div id="targetContainer" class="container">
+                    <div class="row">
+                      <div class="col-10">
+                        <input
+                          id="pantryItemInput"
+                          class="new-item form-control"
+                          placeholder="Add Ingredient"
+                          type="text"
+                        />
+                        <input
+                          id="pantryItemInputQuantity"
+                          class="new-item form-control"
+                          placeholder="Quantity"
+                          type="number"
+                        />
+                        <input
+                          id="pantryItemInputExpiration"
+                          class="new-item form-control"
+                          placeholder="Expiration"
+                          type="date"
+                        />
+                      </div>
+                      <br />
+                      <div class="col-2">
+                        <button type="submit" class="btn btn-success">
+                          Add Ingredient
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </form>
-            </li>
-            <span class="todo-container"> </span>
-          </ul>
+                </form>
+              </li>
+              <span class="todo-container"> </span>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="recipeList" class="container">
-      <div class="row">
-        <div id="locateRecipeDiv" class="col-md-10 offset-md-2">
-          <ul class="recipeList-group recipe-list">
-            <li class="recipeList-group-item new-item">
-              <form id="recipeInventory-form">Selected Ingredients</form>
-            </li>
-            <span class="recipeInventory-container"> </span>
-          </ul>
-          <button id="exampleSubmit" type="submit" form="form1" value="Submit">
-            Submit
-          </button>
+      <div id="recipeList" class="container">
+        <div class="row">
+          <div id="locateRecipeDiv" class="col-md-10 offset-md-2">
+            <ul class="recipeList-group recipe-list">
+              <li class="recipeList-group-item new-item">
+                <form id="recipeInventory-form">Selected Ingredients</form>
+              </li>
+              <span class="recipeInventory-container"> </span>
+            </ul>
+            <button
+              id="exampleSubmit"
+              type="submit"
+              form="form1"
+              value="Submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-
+    </section>
     <!-- Jquery link and JS script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
