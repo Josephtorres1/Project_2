@@ -2,13 +2,13 @@ $(document).ready(() => {
   const newPantryInput = $("#pantryItemInput");
   const newPantryInputQuantity = $("#pantryItemInputQuantity");
   const newPantryInputExpiration = $("#pantryItemInputExpiration");
-  const pantryContainer = $(".todo-container");
+  const pantryContainer = $(".pantry-container");
   const recipeContainer = $(".recipeInventory-container");
   // Calling function to retrieve items in api/pantry
   getInventory();
   getRecipeList();
   // On submit we insert list item
-  $(document).on("submit", "#inventory-form", insertItem);
+  $(document).on("submit", "#pantry-form", insertItem);
   $(document).on("click", "#pantryItemDelete", deletePantryItem);
   $(document).on("click", "#recipeItemDelete", deleteRecipeItem);
   $(document).on("click", "button.complete", insertRecipeItem);
@@ -40,7 +40,6 @@ $(document).ready(() => {
   function initializeRows() {
     pantryContainer.empty();
     const rowsToAdd = [];
-    console.log(pantry);
     for (let i = 0; i < pantry.length; i++) {
       rowsToAdd.push(createNewRow(pantry[i]));
     }
@@ -103,7 +102,6 @@ $(document).ready(() => {
         "<span> | Expiration: ",
         inventoryItem.expiration.slice(0, 10),
         "</span>",
-        "<input type='text' class='edit' style='display: none;'>",
         "<button id='pantryItemDelete' class='delete btn btn-danger'>x</button>",
         "<button class='complete btn btn-primary'>Add to recipe</button>",
         "</li>",
@@ -147,13 +145,6 @@ $(document).ready(() => {
     const apiID = "613de366";
     const apiKey = "d7b048cb96c5addf0f22f91ffb7205e4";
     const edamamQueryUrl = `https://api.edamam.com/search?q=${ingredient1}&app_id=${apiID}&app_key=${apiKey}&from=0&to=10&calories=300-1500`;
-
-    // function createURL() {
-    //   if (ingredient1 && !null) {
-    //     edamamQueryUrl =
-    //     return;
-    //   }
-    // }
 
     $.ajax({
       url: edamamQueryUrl,
