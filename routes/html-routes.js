@@ -31,8 +31,8 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/pantry.html"));
   });
 
-  app.get("/random", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/random.html"));
+  app.get("/explore", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/explore.html"));
   });
 
   app.get("/favorites", isAuthenticated, (req, res) => {

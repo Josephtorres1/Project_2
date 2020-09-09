@@ -49,17 +49,17 @@
             </li>
 
             <li class="nav-item">
-              <a href="/random" class="nav-link smoothScroll">Random</a>
+              <a href="/explore" class="nav-link smoothScroll">Explore</a>
             </li>
 
             <li class="nav-item">
               <a href="/favorites" class="nav-link smoothScroll">Favorites</a>
             </li>
-          </ul>
 
-          <div class="navbar-header">
-            <a id="logoutBtn" class="navbar-brand" href="/logout"> Logout </a>
-          </div>
+            <li class="nav-item">
+              <a id="logoutBtn" class="navbar-brand" href="/logout"> Logout </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -68,7 +68,7 @@
     >
       <div id="pantryInventory" class="container">
         <div class="row">
-          <div class="col-md-6 offset-md-3">
+          <div class="col-md-6">
             <ul class="list-group pantry-list">
               <li class="list-group-item new-item">
                 <form id="pantry-form">
@@ -102,7 +102,7 @@
                   </div>
                 </form>
               </li>
-              <span class="todo-container"> </span>
+              <span class="pantry-container"> </span>
             </ul>
           </div>
         </div>
@@ -111,6 +111,7 @@
         <div class="row">
           <div id="locateRecipeDiv" class="col-md-10 offset-md-2">
             <h3>Selected Ingredients</h3>
+            <span class="recipeInventory-container"> </span>
             <button
               id="exampleSubmit"
               type="submit"
@@ -123,8 +124,40 @@
         </div>
       </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="ml-auto col-lg-4 col-md-5">
+            <p class="copyright-text">
+              Copyright &copy; 2020 Chef Express Co.
+
+              <br />Design: <a href="https://github.com/dolanpettit">Github</a>
+            </p>
+          </div>
+
+          <div
+            class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12"
+          >
+            <p class="mr-4">
+              <i class="fa fa-envelope-o mr-1"></i>
+              <a href="#">hello@company.co</a>
+            </p>
+
+            <p><i class="fa fa-phone mr-1"></i> 010-020-0840</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <!-- Jquery link and JS script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/smoothscroll.js"></script>
+    <script src="/js/custom.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
   </body>
 </html>

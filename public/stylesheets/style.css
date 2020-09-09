@@ -7,8 +7,13 @@ form.login {
 
 #pantryInventory {
   border: 2px solid black;
-  position: relative;
+  height: inherit;
   margin-top: 100px;
+}
+
+.list-group-item {
+  width: 800px;
+  float: left;
 }
 
 .pantry-list {
@@ -22,7 +27,7 @@ form.login {
   width: 80%;
 }
 
-.todo-container {
+.pantry-container {
   border: 2px solid black;
 }
 
@@ -37,6 +42,7 @@ form.login {
 /* Random.html styles */
 .card-deck {
   border: 2px solid black;
+  border-radius: 10px;
   position: relative;
   margin-top: 100px;
 }

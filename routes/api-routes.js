@@ -118,4 +118,12 @@ module.exports = function (app) {
       res.json(dbIngredients);
     });
   });
+
+  app.get("/api/favoriteRecipes", (req, res) => {});
+
+  app.post("/api/favoriteRecipes", (req, res) => {});
+
+  app.get("/api/favoriteRecipe/:id", (req, res) => {});
+
+  app.delete("/api/favoriteRecipe/:id", (req, res) => {});
 };
