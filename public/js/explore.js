@@ -43,11 +43,11 @@ $(document).ready(() => {
 
   const ingredient1 = getRandomProtein();
   const ingredient2 = getRandomVegetable();
-  const ingredient3 = getRandomGrain();
+  // const ingredient3 = getRandomGrain();
 
   const apiID = "613de366";
   const apiKey = "d7b048cb96c5addf0f22f91ffb7205e4";
-  const edamamQueryUrl = `https://api.edamam.com/search?q=${ingredient1}+${ingredient2}+${ingredient3}&app_id=${apiID}&app_key=${apiKey}&from=0&to=6&calories=300-1500`;
+  const edamamQueryUrl = `https://api.edamam.com/search?q=${ingredient1}+${ingredient2}&app_id=${apiID}&app_key=${apiKey}&from=0&to=6&calories=300-1500`;
 
   $.ajax({
     url: edamamQueryUrl,
@@ -56,7 +56,6 @@ $(document).ready(() => {
       if ((data.more = false)) {
         return;
       }
-      console.log(data);
       cardOneTitle.text(data.hits[0].recipe.label);
       cardOneImg.attr("src", data.hits[0].recipe.image);
       cardOneText.text(data.hits[0].recipe.url);
