@@ -4,6 +4,7 @@ $(document).ready(() => {
   const newPantryInputExpiration = $("#pantryItemInputExpiration");
   const pantryContainer = $(".pantry-container");
   const recipeContainer = $(".recipeInventory-container");
+  const cardDeck = $(".card-deck");
   // Calling function to retrieve items in api/pantry
   getInventory();
   getRecipeList();
@@ -146,16 +147,68 @@ $(document).ready(() => {
     const apiKey = "d7b048cb96c5addf0f22f91ffb7205e4";
     const edamamQueryUrl = `https://api.edamam.com/search?q=${ingredient1}&app_id=${apiID}&app_key=${apiKey}&from=0&to=10&calories=300-1500`;
 
+    function createNewCard(providedRecipe) {
+      const $newCard = $(
+        [
+          "<div class='card'>",
+          "<img class='card-img-top' src='",
+          providedRecipe.imgUrl,
+          "' alt='Card image cap'/>",
+          "<div class='card-body'>",
+          "<h5 class=''card-title>",
+          providedRecipe.title,
+          "</h5>",
+          "<hr />",
+          "<a class='card-text' href='",
+          providedRecipe.url,
+          "'>",
+          providedRecipe.url,
+          "</a>",
+          "<hr />",
+          "<button class='addToFavorites'>Add to favorites</button>",
+          "</div>",
+          "</div>",
+        ].join("")
+      );
+      $newCard.find("button.deleteBtn").data("id", providedRecipe.id);
+
+      return $newCard;
+    }
+    function initializeFavoriteRecipes(providedRecipe) {
+      const cardsToAdd = [];
+      cardsToAdd.push(createNewCard(providedRecipe));
+      cardDeck.prepend(cardsToAdd);
+    }
+
     $.ajax({
       url: edamamQueryUrl,
       method: "GET",
       success: function (data) {
+        const providedRecipe1 = {
+          title: data.hits[0].recipe.label,
+          url: data.hits[0].recipe.url,
+          imgUrl: data.hits[0].recipe.image,
+        };
+
+        const providedRecipe2 = {
+          title: data.hits[1].recipe.label,
+          url: data.hits[1].recipe.url,
+          imgUrl: data.hits[1].recipe.image,
+        };
+
+        const providedRecipe3 = {
+          title: data.hits[2].recipe.label,
+          url: data.hits[2].recipe.url,
+          imgUrl: data.hits[2].recipe.image,
+        };
+
+        initializeFavoriteRecipes(providedRecipe1);
+        initializeFavoriteRecipes(providedRecipe2);
+        initializeFavoriteRecipes(providedRecipe3);
+
         console.log(data);
+        console.log(data.hits.length);
         console.log(data.hits[0].recipe.label);
-        console.log(data.hits[1].recipe.label);
-        console.log(data.hits[2].recipe.label);
-        console.log(data.hits[3].recipe.label);
-        console.log(data.hits[4].recipe.label);
       },
     });
   });

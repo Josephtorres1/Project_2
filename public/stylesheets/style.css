@@ -7,36 +7,66 @@ form.login {
 
 #pantryInventory {
   border: 2px solid black;
-  height: inherit;
   margin-top: 100px;
 }
 
 .list-group-item {
-  width: 800px;
+  width: 500px;
   float: left;
+  border: 2px solid black;
+  margin: 10px;
+}
+
+.todo-item {
+  width: 600px;
+  border-radius: 10px;
 }
 
 .pantry-list {
   border: 2px solid black;
-  width: 500px;
   margin: 20px;
 }
 
 #targetContainer {
   border: 2px solid black;
-  width: 80%;
 }
 
 .pantry-container {
   border: 2px solid black;
+  margin: 10px;
 }
 
 #recipeList {
   border: 2px solid black;
+  margin: 10px;
+}
+
+#locateRecipeDiv {
+  border: 2px solid black;
+  margin: 10px;
+  background-color: white;
+}
+
+#exampleSubmit {
+  border: 2px solid black;
+  margin: 10px;
 }
 
 .recipe-list {
   border: 2px solid black;
+}
+
+.recipeList-group-item {
+  border: 2px solid black;
+  margin: 5px;
+}
+
+#recipeItem {
+  margin: 5px;
+}
+
+#recipeSubmitBtn {
+  margin: 5px;
 }
 
 /* Random.html styles */
@@ -47,6 +77,11 @@ form.login {
   margin-top: 100px;
 }
 
+#addFavoritesBtn {
+  border-radius: 5px;
+}
+
+/*  */
 #pantryInventory {
   border: 2px solid black;
   position: relative;

@@ -55,7 +55,6 @@
             <li class="nav-item">
               <a href="/favorites" class="nav-link smoothScroll">Favorites</a>
             </li>
-            <<<<<<< HEAD ======= >>>>>>> master
             <li class="nav-item">
               <a id="logoutBtn" class="navbar-brand" href="/logout"> Logout </a>
             </li>
@@ -69,51 +68,51 @@
     >
       <div id="pantryInventory" class="container">
         <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <ul class="list-group todo-list">
-              <li class="list-group-item new-item">
-                <form id="inventory-form">
-                  <div id="targetContainer" class="container">
-                    <div class="row">
-                      <div class="col-10">
-                        <input
-                          id="pantryItemInput"
-                          class="new-item form-control"
-                          placeholder="Add Ingredient"
-                          type="text"
-                        />
-                        <input
-                          id="pantryItemInputQuantity"
-                          class="new-item form-control"
-                          placeholder="Quantity"
-                          type="number"
-                        />
-                        <input
-                          id="pantryItemInputExpiration"
-                          class="new-item form-control"
-                          placeholder="Expiration"
-                          type="date"
-                        />
-                      </div>
-                      <br />
-                      <div class="col-2">
-                        <button type="submit" class="btn btn-success">
-                          Add Ingredient
-                        </button>
-                      </div>
-                    </div>
+          <ul class="list-group pantry-list">
+            <li class="list-group-item new-item">
+              <form id="pantry-form">
+                <div id="targetContainer" class="container">
+                  <div class="col-10">
+                    <input
+                      id="pantryItemInput"
+                      class="new-item form-control"
+                      placeholder="Add Ingredient"
+                      type="text"
+                    />
+                    <input
+                      id="pantryItemInputQuantity"
+                      class="new-item form-control"
+                      placeholder="Quantity"
+                      type="number"
+                    />
+                    <input
+                      id="pantryItemInputExpiration"
+                      class="new-item form-control"
+                      placeholder="Expiration"
+                      type="date"
+                    />
                   </div>
-                </form>
-              </li>
-              <span class="pantry-container"> </span>
-            </ul>
-          </div>
+                  <br />
+                  <div class="col-6">
+                    <button
+                      id="recipeSubmitBtn"
+                      type="submit"
+                      class="btn btn-success"
+                    >
+                      Add Ingredient
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </li>
+            <span class="pantry-container"> </span>
+          </ul>
         </div>
       </div>
       <div id="recipeList" class="container">
         <div class="row">
           <div id="locateRecipeDiv" class="col-md-10 offset-md-2">
-            <h3>Selected Ingredients</h3>
+            <h3>Selected Ingredients:</h3>
             <span class="recipeInventory-container"> </span>
             <button
               id="exampleSubmit"
@@ -124,6 +123,13 @@
               Submit
             </button>
           </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="provided-recipes-container">
+          <div class="card-deck"></div>
         </div>
       </div>
     </section>
