@@ -58,8 +58,6 @@ module.exports = function (app) {
   app.post("/api/pantry", (req, res) => {
     db.Inventory2.create({
       text: req.body.text,
-      quantity: req.body.quantity,
-      expiration: req.body.expiration,
     }).then((dbInventory) => {
       res.json(dbInventory);
     });
@@ -135,7 +133,15 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/favoriteRecipes/:id", (req, res) => {});
+  app.get("/api/favoriteRecipes/:id", (req, res) => {
+    db.FavoriteRecipes.findOne({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbFavorites) => {
+      res.json(dbFavorites);
+    });
+  });
 
   app.delete("/api/favoriteRecipes/:id", (req, res) => {
     db.FavoriteRecipes.destroy({

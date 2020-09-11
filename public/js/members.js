@@ -1,7 +1,5 @@
 $(document).ready(() => {
   const newPantryInput = $("#pantryItemInput");
-  const newPantryInputQuantity = $("#pantryItemInputQuantity");
-  const newPantryInputExpiration = $("#pantryItemInputExpiration");
   const pantryContainer = $(".pantry-container");
   const recipeContainer = $(".recipeInventory-container");
   const cardDeck = $(".card-deck");
@@ -22,18 +20,15 @@ $(document).ready(() => {
     event.preventDefault();
     inventoryItem = {
       text: newPantryInput.val().trim(),
-      quantity: parseInt(newPantryInputQuantity.val()),
-      expiration: newPantryInputExpiration[0].value,
     };
     $.post("/api/pantry", inventoryItem, getInventory);
     newPantryInput.val("");
     newPantryInputQuantity.val("");
-    newPantryInputExpiration.val("");
   }
 
   function insertRecipeItem() {
     const recipeItem = {
-      text: document.getElementById("recipeReference").innerHTML,
+      text: $(this).document.getElementById("#recipeReference").innerText,
     };
     $.post("/api/recipeIngredients", recipeItem, getRecipeList);
   }
@@ -97,13 +92,7 @@ $(document).ready(() => {
         inventoryItem.text,
         "</span>",
         "</span>",
-        "<span> | Quantity: ",
-        inventoryItem.quantity,
-        "</span>",
-        "<span> | Expiration: ",
-        inventoryItem.expiration.slice(0, 10),
-        "</span>",
-        "<button id='pantryItemDelete' class='delete btn btn-danger'>x</button>",
+        "<button id='pantryItemDelete' class='delete btn btn-danger'>Remove</button>",
         "<button class='complete btn btn-primary'>Add to recipe</button>",
         "</li>",
       ].join("")
@@ -170,7 +159,7 @@ $(document).ready(() => {
           "</div>",
         ].join("")
       );
-      $newCard.find("button.deleteBtn").data("id", providedRecipe.id);
+      $newCard.find("button.addToFavorites").data("id", providedRecipe.id);
 
       return $newCard;
     }

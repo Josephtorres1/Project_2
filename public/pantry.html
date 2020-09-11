@@ -66,47 +66,26 @@
       class="hero d-flex flex-column justify-content-center align-items-center"
     >
       <div id="pantryInventory" class="container">
-        <div class="row">
-          <ul class="list-group pantry-list">
-            <li class="list-group-item new-item">
-              <form id="pantry-form">
-                <div id="targetContainer" class="container">
-                  <div class="col-10">
-                    <input
-                      id="pantryItemInput"
-                      class="new-item form-control"
-                      placeholder="Add Ingredient"
-                      type="text"
-                    />
-                    <input
-                      id="pantryItemInputQuantity"
-                      class="new-item form-control"
-                      placeholder="Quantity"
-                      type="number"
-                    />
-                    <input
-                      id="pantryItemInputExpiration"
-                      class="new-item form-control"
-                      placeholder="Expiration"
-                      type="date"
-                    />
-                  </div>
-                  <br />
-                  <div class="col-6">
-                    <button
-                      id="recipeSubmitBtn"
-                      type="submit"
-                      class="btn btn-success"
-                    >
-                      Add Ingredient
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </li>
-            <span class="pantry-container"> </span>
-          </ul>
-        </div>
+        <form id="pantry-form">
+          <div id="targetContainer" class="container">
+            <div class="col-10">
+              <input
+                id="pantryItemInput"
+                class="new-item form-control"
+                placeholder="Add Ingredient"
+                type="text"
+              />
+              <button
+                id="recipeSubmitBtn"
+                type="submit"
+                class="btn btn-success"
+              >
+                Add Ingredient
+              </button>
+            </div>
+          </div>
+        </form>
+        <span class="pantry-container"> </span>
       </div>
       <div id="recipeList" class="container">
         <div class="row">
