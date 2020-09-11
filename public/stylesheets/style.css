@@ -82,7 +82,19 @@ form.login {
 }
 
 /*  */
+#pantryInventory {
+  border: 2px solid black;
+  position: relative;
+  margin-top: 100px;
+}
+#targetContainer {
+  margin-top: auto;
+  border: 2px solid black;
+}
 
+/* ----------------------------------------------
+    CSS From Template Starts Here 
+-------------------------------------------------*/
 :root {
   --primary-color: #f13a11;
   --white-color: #ffffff;
