@@ -1,4 +1,4 @@
-form.signup,
+/* form.signup,
 form.login {
   margin-top: 50px;
 }
@@ -7,36 +7,66 @@ form.login {
 
 #pantryInventory {
   border: 2px solid black;
-  height: inherit;
   margin-top: 100px;
 }
 
 .list-group-item {
-  width: 800px;
+  width: 500px;
   float: left;
+  border: 2px solid black;
+  margin: 10px;
+}
+
+.todo-item {
+  width: 600px;
+  border-radius: 10px;
 }
 
 .pantry-list {
   border: 2px solid black;
-  width: 500px;
   margin: 20px;
 }
 
 #targetContainer {
   border: 2px solid black;
-  width: 80%;
 }
 
 .pantry-container {
   border: 2px solid black;
+  margin: 10px;
 }
 
 #recipeList {
   border: 2px solid black;
+  margin: 10px;
+}
+
+#locateRecipeDiv {
+  border: 2px solid black;
+  margin: 10px;
+  background-color: white;
+}
+
+#exampleSubmit {
+  border: 2px solid black;
+  margin: 10px;
 }
 
 .recipe-list {
   border: 2px solid black;
+}
+
+.recipeList-group-item {
+  border: 2px solid black;
+  margin: 5px;
+}
+
+#recipeItem {
+  margin: 5px;
+}
+
+#recipeSubmitBtn {
+  margin: 5px;
 }
 
 /* Random.html styles */
@@ -45,6 +75,10 @@ form.login {
   border-radius: 10px;
   position: relative;
   margin-top: 100px;
+}
+
+#addFavoritesBtn {
+  border-radius: 5px;
 }
 
 /*  */
@@ -384,6 +418,17 @@ a:focus {
 
 .hero {
   background-image: url(".././images/chef-bg.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  min-height: 100vh;
+  position: relative;
+}
+
+.backdrop {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(".././images/chef-bg.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;

@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  // Card deck recipe randomization
   const cardOneTitle = $(".cardOne-title");
   const cardTwoTitle = $(".cardTwo-title");
   const cardThreeTitle = $(".cardThree-title");
@@ -87,4 +88,65 @@ $(document).ready(() => {
       cardSixText.attr("href", data.hits[5].recipe.url);
     },
   });
+  // Creating add favorites button
+  $(document).on("click", "#addFavoritesBtn1", addFavorite1);
+  $(document).on("click", "#addFavoritesBtn2", addFavorite2);
+  $(document).on("click", "#addFavoritesBtn3", addFavorite3);
+  $(document).on("click", "#addFavoritesBtn4", addFavorite4);
+  $(document).on("click", "#addFavoritesBtn5", addFavorite5);
+  $(document).on("click", "#addFavoritesBtn6", addFavorite6);
+
+  function addFavorite1() {
+    const favoriteRecipe = {
+      title: cardOneTitle.text(),
+      url: cardOneText.text(),
+      imgUrl: cardOneImg.attr("src"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
+
+  function addFavorite2() {
+    const favoriteRecipe = {
+      title: cardTwoTitle.text(),
+      url: cardTwoText.text(),
+      imgUrl: cardTwoImg.attr("src"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
+
+  function addFavorite3() {
+    const favoriteRecipe = {
+      title: cardThreeTitle.text(),
+      url: cardThreeText.text(),
+      imgUrl: cardThreeImg.attr("src"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
+
+  function addFavorite4() {
+    const favoriteRecipe = {
+      title: cardFourTitle.text(),
+      url: cardFourText.text(),
+      imgUrl: cardFourImg.attr("src"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
+
+  function addFavorite5() {
+    const favoriteRecipe = {
+      title: cardFiveTitle.text(),
+      url: cardFiveText.text(),
+      imgUrl: cardFiveImg.attr("src"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
+
+  function addFavorite6() {
+    const favoriteRecipe = {
+      title: cardSixTitle.text(),
+      url: cardSixText.text(),
+      imgUrl: cardSixImg.attr("src"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
 });

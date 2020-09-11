@@ -119,11 +119,31 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/favoriteRecipes", (req, res) => {});
+  app.get("/api/favoriteRecipes", (req, res) => {
+    db.FavoriteRecipes.findAll({}).then((dbFavorites) => {
+      res.json(dbFavorites);
+    });
+  });
 
-  app.post("/api/favoriteRecipes", (req, res) => {});
+  app.post("/api/favoriteRecipes", (req, res) => {
+    db.FavoriteRecipes.create({
+      title: req.body.title,
+      url: req.body.url,
+      imgUrl: req.body.imgUrl,
+    }).then((dbFavorites) => {
+      res.json(dbFavorites);
+    });
+  });
 
-  app.get("/api/favoriteRecipe/:id", (req, res) => {});
+  app.get("/api/favoriteRecipes/:id", (req, res) => {});
 
-  app.delete("/api/favoriteRecipe/:id", (req, res) => {});
+  app.delete("/api/favoriteRecipes/:id", (req, res) => {
+    db.FavoriteRecipes.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbFavorites) => {
+      res.json(dbFavorites);
+    });
+  });
 };
