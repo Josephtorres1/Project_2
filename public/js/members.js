@@ -119,8 +119,8 @@ $(document).ready(() => {
 
   function addtoFavorites() {
     const favoriteRecipe = {
-      title: $(this).find(".card-title").text(),
-      url: $(this).find(".card-text").text(),
+      title: $(this).parent().find(".card-title").text(),
+      url: $(this).parent().find(".card-text").text(),
       imgUrl: $(this).data("id"),
     };
     $.post("/api/favoriteRecipes", favoriteRecipe);
@@ -203,6 +203,8 @@ $(document).ready(() => {
         ].join("")
       );
       $newCard.find("button.addToFavorites").data("id", providedRecipe.imgUrl);
+      $newCard.find("button.addToFavorites").data("name", providedRecipe.title);
+      $newCard.find("button.addToFavorites").data("value", providedRecipe.url);
 
       return $newCard;
     }
