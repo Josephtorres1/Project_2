@@ -35,15 +35,8 @@ $(document).ready(() => {
     return randomVegetable;
   }
 
-  function getRandomGrain() {
-    const grainList = ["rice", "brown rice", "quinoa", "penne", "spaghetti"];
-    const randomGrain = grainList[Math.floor(Math.random() * grainList.length)];
-    return randomGrain;
-  }
-
   const ingredient1 = getRandomProtein();
   const ingredient2 = getRandomVegetable();
-  // const ingredient3 = getRandomGrain();
 
   const apiID = "613de366";
   const apiKey = "d7b048cb96c5addf0f22f91ffb7205e4";
