@@ -11,6 +11,7 @@ $(document).ready(() => {
   $(document).on("click", "#pantryItemDelete", deletePantryItem);
   $(document).on("click", "#recipeItemDelete", deleteRecipeItem);
   $(document).on("click", "button.complete", insertRecipeItem);
+  $(document).on("click", ".addToFavorites", addtoFavorites);
 
   let pantry = [];
   let recipeIngredients = [];
@@ -113,19 +114,67 @@ $(document).ready(() => {
     );
 
     $newInputRow.find("button.delete").data("id", recipeItem.id);
-    $newInputRow.find("input.edit").css("display", "none");
-    $newInputRow.data("recipeIngredient", recipeItem.text);
     return $newInputRow;
   }
 
+  function addtoFavorites() {
+    const favoriteRecipe = {
+      title: $(this).find(".card-title").text(),
+      url: $(this).find(".card-text").text(),
+      imgUrl: $(this).data("id"),
+    };
+    $.post("/api/favoriteRecipes", favoriteRecipe);
+  }
+
   $("#exampleSubmit").click(() => {
-    let ingredient1 = $("#recipeItem").text();
-    ingredient1 = ingredient1.slice(7);
-    // const ingredient2 = $("#ingredient2").val().trim();
-    // const ingredient3 = $("#ingredient3").val().trim();
+    function declareIngredient1() {
+      if (recipeIngredients[0] === undefined) {
+        return "";
+      } else {
+        return recipeIngredients[0].text;
+      }
+    }
+
+    function declareIngredient2() {
+      if (recipeIngredients[1] === undefined) {
+        return "";
+      } else {
+        return recipeIngredients[1].text;
+      }
+    }
+
+    function declareIngredient3() {
+      if (recipeIngredients[2] === undefined) {
+        return "";
+      } else {
+        return recipeIngredients[2].text;
+      }
+    }
+
+    function getRecipeList() {
+      $.get("/api/recipeIngredients", (data) => {
+        recipeIngredients = data;
+        console.log(recipeIngredients);
+      });
+    }
+
+    getRecipeList();
+
+    const ingredient1 = declareIngredient1();
+    const ingredient2 = declareIngredient2();
+    const ingredient3 = declareIngredient3();
 
     const apiID = "613de366";
     const apiKey = "d7b048cb96c5addf0f22f91ffb7205e4";
+    function buildUrl() {
+      if (ingredient1 && ingredient2 && ingredient3) {
+        return `https://api.edamam.com/search?q=${ingredient1}+${ingredient2}+${ingredient3}&app_id=${apiID}&app_key=${apiKey}&from=0&to=10&calories=300-1500`;
+      } else if (ingredient1 && ingredient2) {
+        return `https://api.edamam.com/search?q=${ingredient1}+${ingredient2}&app_id=${apiID}&app_key=${apiKey}&from=0&to=10&calories=300-1500`;
+      } else {
+        return edamamQueryUrl;
+      }
+    }
     const edamamQueryUrl = `https://api.edamam.com/search?q=${ingredient1}&app_id=${apiID}&app_key=${apiKey}&from=0&to=10&calories=300-1500`;
 
     function createNewCard(providedRecipe) {
@@ -136,7 +185,7 @@ $(document).ready(() => {
           providedRecipe.imgUrl,
           "' alt='Card image cap'/>",
           "<div class='card-body'>",
-          "<h5 class=''card-title>",
+          "<h5 class='card-title'>",
           providedRecipe.title,
           "</h5>",
           "<hr />",
@@ -146,23 +195,25 @@ $(document).ready(() => {
           providedRecipe.url,
           "</a>",
           "<hr />",
-          "<button class='addToFavorites'>Add to favorites</button>",
+          "<button id='" +
+            providedRecipe.imgUrl +
+            "' class='addToFavorites'>Add to favorites</button>",
           "</div>",
           "</div>",
         ].join("")
       );
-      $newCard.find("button.addToFavorites").data("id", providedRecipe.id);
+      $newCard.find("button.addToFavorites").data("id", providedRecipe.imgUrl);
 
       return $newCard;
     }
-    function initializeFavoriteRecipes(providedRecipe) {
+    function initializeRecipes(providedRecipe) {
       const cardsToAdd = [];
       cardsToAdd.push(createNewCard(providedRecipe));
       cardDeck.prepend(cardsToAdd);
     }
 
     $.ajax({
-      url: edamamQueryUrl,
+      url: buildUrl(),
       method: "GET",
       success: function (data) {
         const providedRecipe1 = {
@@ -183,9 +234,11 @@ $(document).ready(() => {
           imgUrl: data.hits[2].recipe.image,
         };
 
-        initializeFavoriteRecipes(providedRecipe1);
-        initializeFavoriteRecipes(providedRecipe2);
-        initializeFavoriteRecipes(providedRecipe3);
+        cardDeck.empty();
+
+        initializeRecipes(providedRecipe1);
+        initializeRecipes(providedRecipe2);
+        initializeRecipes(providedRecipe3);
 
         console.log(data);
       },
