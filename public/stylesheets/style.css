@@ -6,7 +6,7 @@ form.login {
 /* Pantry.html styles */
 
 #pantryInventory {
-  margin-top: -100px;
+  margin-top: 100px;
   border-radius: 15px;
 }
 
@@ -22,8 +22,22 @@ form.login {
 
 #pantryItemInput {
   display: inline-block;
-  max-width: 500px;
+  max-width: 600px;
   min-width: 300px;
+}
+#pantryItemDelete {
+  margin: 5px;
+  background-color: #171819;
+  border-color: #171819;
+}
+
+#pantryCardDeck {
+  margin-bottom: 100px;
+  position: relative;
+}
+.btn-danger {
+  background-color: #171819;
+  border-color: #171819;
 }
 
 .todo-item {
@@ -32,7 +46,7 @@ form.login {
 }
 
 .pantry-list {
-  border: 2px solid black;
+  border: 2px solid;
   margin: 20px;
 }
 
@@ -45,15 +59,10 @@ form.login {
   margin: 10px;
 }
 
-#recipeList {
-  border: 2px solid black;
-  margin: 10px;
-}
-
 #locateRecipeDiv {
-  border: 2px solid black;
   margin: 10px;
-  background-color: white;
+  color: white;
+  margin-top: 35px;
 }
 
 #exampleSubmit {
@@ -66,8 +75,13 @@ form.login {
 }
 
 .recipeList-group-item {
-  border: 2px solid black;
+  border: 2px solid white;
   margin: 5px;
+  float: left;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  display: block;
 }
 
 #recipeItem {
@@ -76,29 +90,28 @@ form.login {
 
 #recipeSubmitBtn {
   margin: 5px;
+  background-color: #171819;
+  border-color: #171819;
 }
 
 /* Random.html styles */
 .card-deck {
-  border: 2px solid black;
   border-radius: 10px;
-  position: relative;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 
+#exploreCardDeck {
+  margin-bottom: 0px;
+}
+
+.card {
+  max-width: 300px;
+  background-color: #171819;
+  color: white;
+}
 #addFavoritesBtn {
   border-radius: 5px;
-}
-
-/*  */
-#pantryInventory {
-  border: 2px solid black;
-  position: relative;
-  margin-top: 100px;
-}
-#targetContainer {
-  margin-top: auto;
-  border: 2px solid black;
 }
 
 /* ----------------------------------------------
@@ -135,7 +148,7 @@ form.login {
 }
 
 body {
-  background: var(--white-color);
+  background-color: white;
   font-family: var(--base-font-family);
 }
 
@@ -176,6 +189,7 @@ h3 {
   font-weight: var(--font-weight-bold);
   letter-spacing: -1px;
   margin: 0;
+  font-size: xx-large;
 }
 
 h4 {
@@ -194,7 +208,7 @@ h6 {
 }
 
 p {
-  color: var(--p-color);
+  color: #f13a11;
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-light);
   line-height: 1.5em;
@@ -270,7 +284,6 @@ strong {
 }
 
 a {
-  color: var(--link-color);
   font-weight: normal;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -653,12 +666,11 @@ button#submit-button:hover {
     -----------------------------------------*/
 
 .site-footer {
-  border-top: 1px solid #efebeb;
   padding: 3rem 0;
 }
 
 .site-footer a {
-  color: var(--p-color);
+  color: #f13a11;
   font-weight: var(--font-weight-light);
 }
 
