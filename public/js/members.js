@@ -23,13 +23,13 @@ $(document).ready(() => {
     };
     $.post("/api/pantry", inventoryItem, getInventory);
     newPantryInput.val("");
-    newPantryInputQuantity.val("");
   }
 
   function insertRecipeItem() {
-    const recipeItem = {
-      text: $(this).document.getElementById("#recipeReference").innerText,
+    let recipeItem = {
+      text: $(this).parent("#listText").text(),
     };
+    recipeItem.text = recipeItem.text.slice(6, -19);
     $.post("/api/recipeIngredients", recipeItem, getRecipeList);
   }
 
@@ -86,34 +86,28 @@ $(document).ready(() => {
   function createNewRow(inventoryItem) {
     const $newInputRow = $(
       [
-        "<li class='list-group-item todo-item'>",
-        "<span> Item: ",
-        "<span id='recipeReference'>",
+        "<li id='listText' class='list-group-item todo-item'>",
+        "Item: ",
         inventoryItem.text,
-        "</span>",
-        "</span>",
         "<button id='pantryItemDelete' class='delete btn btn-danger'>Remove</button>",
         "<button class='complete btn btn-primary'>Add to recipe</button>",
         "</li>",
       ].join("")
     );
 
-    $newInputRow.find("button.complete").data("id", inventoryItem.id);
+    $newInputRow.find("button.complete").data("id", inventoryItem.text);
     $newInputRow.find("button.delete").data("id", inventoryItem.id);
-    $newInputRow.find("input.edit").css("display", "none");
-    $newInputRow.data("todo", inventoryItem);
     return $newInputRow;
   }
 
   function createNewRecipeRow(recipeItem) {
-    console.log(recipeItem);
     const $newInputRow = $(
       [
         "<li class='recipeList-group-item recipeList-item'>",
         "<span id='recipeItem'> Item: ",
         recipeItem.text,
         "</span>",
-        "<button id='recipeItemDelete' class='delete btn btn-danger'>x</button>",
+        "<button id='recipeItemDelete' class='delete btn btn-danger'>Remove</button>",
         "</li>",
       ].join("")
     );
@@ -127,8 +121,6 @@ $(document).ready(() => {
   $("#exampleSubmit").click(() => {
     let ingredient1 = $("#recipeItem").text();
     ingredient1 = ingredient1.slice(7);
-    // let ingredient2 = $("recipeItem").text();
-    // ingredient2 = ingredient2.slice(7);
     // const ingredient2 = $("#ingredient2").val().trim();
     // const ingredient3 = $("#ingredient3").val().trim();
 
@@ -196,8 +188,6 @@ $(document).ready(() => {
         initializeFavoriteRecipes(providedRecipe3);
 
         console.log(data);
-        console.log(data.hits.length);
-        console.log(data.hits[0].recipe.label);
       },
     });
   });
